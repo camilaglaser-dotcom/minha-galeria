@@ -3,196 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria do Timão</title>
+    <title>Galeria Timão - Preto e Branco</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            background-color: #000000;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 30px 20px;
         }
 
-        /* Header com estilo Corinthians */
-        .header {
+        /* Cabeçalho preto e branco */
+        .cabecalho {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-            max-width: 800px;
+            margin-bottom: 40px;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border: 5px solid #000000;
+            box-shadow: 15px 15px 0 #333333;
+            max-width: 1000px;
             width: 100%;
-            border: 3px solid #cccccc;
         }
 
-        .header h1 {
-            font-size: 3rem;
+        .cabecalho h1 {
+            font-size: 3.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
         }
 
-        .header h1 span:nth-child(1) {
+        .cabecalho h1 .preto {
             color: #000000;
-        }
-
-        .header h1 span:nth-child(2) {
-            color: #ffffff;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-            background-color: #000;
+            background-color: #ffffff;
             padding: 0 5px;
         }
 
-        .header p {
-            color: #333;
-            font-size: 1.2rem;
-            margin-top: 10px;
-            font-weight: 500;
-            background: #eeeeee;
-            display: inline-block;
-            padding: 5px 20px;
-            border-radius: 50px;
+        .cabecalho h1 .branco {
+            color: #ffffff;
+            background-color: #000000;
+            padding: 0 5px;
+            border: 2px solid #000000;
         }
 
-        /* Container da galeria - 3 colunas x 2 linhas */
+        .cabecalho p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+            background-color: #000000;
+            color: #ffffff;
+            display: inline-block;
+            padding: 8px 30px;
+            border: 3px solid #ffffff;
+            letter-spacing: 2px;
+        }
+
+        /* Galeria 3x2 */
         .galeria {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 30px;
             max-width: 1200px;
             width: 100%;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 30px;
-            backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background-color: #1a1a1a;
+            border: 4px solid #ffffff;
         }
 
-        /* Cards de imagem */
+        /* Cards em preto e branco */
         .card {
-            background: white;
-            border-radius: 20px;
+            background-color: #ffffff;
+            border: 4px solid #000000;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 3px solid #ffffff;
-            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 10px 10px 0 #000000;
         }
 
         .card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 45px rgba(255, 255, 255, 0.2);
-            border-color: #cccccc;
+            transform: translate(-5px, -5px);
+            box-shadow: 15px 15px 0 #333333;
+            border-color: #666666;
         }
 
         /* Container da imagem */
-        .card-img {
+        .card-imagem {
             width: 100%;
-            height: 220px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            height: 200px;
+            background-color: #000000;
+            border-bottom: 4px solid #000000;
             overflow: hidden;
         }
 
-        /* Estilo das imagens (como são ilustrativas, usei SVGs com cores do Corinthians) */
-        .card-img svg {
+        /* Estilo das imagens placeholder */
+        .card-imagem img {
             width: 100%;
             height: 100%;
-            transition: transform 0.5s;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%) contrast(120%);
+            transition: transform 0.5s, filter 0.3s;
         }
 
-        .card:hover .card-img svg {
+        .card:hover .card-imagem img {
             transform: scale(1.1);
+            filter: grayscale(0%) contrast(100%);
         }
 
         /* Informações do card */
         .card-info {
-            padding: 15px;
+            padding: 20px 15px;
+            background-color: #ffffff;
             text-align: center;
-            background: #000000;
-            color: white;
+            border-top: 2px solid #000000;
         }
 
         .card-info h3 {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #000000;
+            text-transform: uppercase;
             margin-bottom: 5px;
-            font-weight: 700;
             letter-spacing: 1px;
         }
 
         .card-info p {
-            color: #cccccc;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        /* Destaque para o título do jogador */
-        .card-info .destaque {
-            background: white;
-            color: black;
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 50px;
+            color: #333333;
             font-weight: bold;
-            margin-top: 8px;
-            font-size: 0.9rem;
-        }
-
-        /* Efeito de brilho no canto */
-        .card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0.2) 0%,
-                rgba(255, 255, 255, 0) 50%
-            );
-            transform: rotate(30deg);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-        }
-
-        .card:hover::after {
-            opacity: 1;
+            font-size: 1.1rem;
+            background-color: #000000;
+            color: #ffffff;
+            display: inline-block;
+            padding: 5px 15px;
+            border: 2px solid #000000;
         }
 
         /* Rodapé */
-        .footer {
+        .rodape {
             margin-top: 40px;
-            color: white;
             text-align: center;
-            font-size: 1.1rem;
-            background: black;
-            padding: 15px 30px;
-            border-radius: 50px;
-            border: 2px solid white;
-            font-weight: 600;
+            padding: 15px 40px;
+            background-color: #ffffff;
+            border: 4px solid #000000;
+            font-weight: bold;
+            font-size: 1.3rem;
+            box-shadow: 8px 8px 0 #333333;
         }
 
-        /* Responsividade: se a tela for menor, ajusta para menos colunas */
+        .rodape span {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 3px 10px;
+            margin: 0 5px;
+        }
+
+        /* Responsividade */
         @media (max-width: 900px) {
             .galeria {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .header h1 {
+            
+            .cabecalho h1 {
                 font-size: 2.5rem;
             }
         }
@@ -201,137 +179,99 @@
             .galeria {
                 grid-template-columns: 1fr;
             }
-            .header h1 {
+            
+            .cabecalho h1 {
                 font-size: 2rem;
+            }
+            
+            .cabecalho p {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
+    <div class="cabecalho">
         <h1>
-            <span>SPORT</span>
-            <span>CLUB</span>
-            <span> CORINTHIANS</span>
+            <span class="preto">SPORT</span>
+            <span class="branco">CLUB</span>
+            <span class="preto">CORINTHIANS</span>
         </h1>
-        <p>⚫️⚪️ GALERIA DE ÍDOLOS ⚪️⚫️</p>
+        <p>⚫  ÍDOLOS EM PRETO E BRANCO  ⚪</p>
     </div>
 
     <!-- Galeria 3 colunas x 2 linhas -->
     <div class="galeria">
-        <!-- Card 1 - Jogador 1 -->
+        <!-- Card 1 - Sócrates -->
         <div class="card">
-            <div class="card-img">
-                <!-- Imagem ilustrativa do jogador - estilo Corinthians -->
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="80" r="40" fill="#222222" />
-                    <rect x="70" y="120" width="60" height="70" fill="#000000" />
-                    <circle cx="100" cy="160" r="30" fill="#FFFFFF" />
-                    <text x="100" y="190" font-size="24" text-anchor="middle" fill="#FF0000" font-weight="bold">8</text>
-                    <text x="100" y="60" font-size="20" text-anchor="middle" fill="#FFFFFF" font-weight="bold">Sócrates</text>
-                </svg>
+            <div class="card-imagem">
+                <img src="https://placehold.co/400x300/000000/ffffff?text=SÓCRATES&font=montserrat" alt="Sócrates - Corinthians">
             </div>
             <div class="card-info">
                 <h3>SÓCRATES</h3>
-                <p>Meia - Doutor da Bola</p>
-                <span class="destaque">Ídolo eterno</span>
+                <p>MEIA - 8</p>
             </div>
         </div>
 
-        <!-- Card 2 - Jogador 2 -->
+        <!-- Card 2 - Rivellino -->
         <div class="card">
-            <div class="card-img">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="80" r="40" fill="#333333" />
-                    <rect x="70" y="120" width="60" height="70" fill="#000000" />
-                    <circle cx="100" cy="160" r="30" fill="#FFFFFF" />
-                    <text x="100" y="190" font-size="24" text-anchor="middle" fill="#FF0000" font-weight="bold">10</text>
-                    <text x="100" y="60" font-size="20" text-anchor="middle" fill="#FFFFFF" font-weight="bold">Rivellino</text>
-                </svg>
+            <div class="card-imagem">
+                <img src="https://placehold.co/400x300/ffffff/000000?text=RIVELLINO&font=montserrat" alt="Rivellino - Corinthians">
             </div>
             <div class="card-info">
                 <h3>RIVELLINO</h3>
-                <p>Meia - Rei do Parque</p>
-                <span class="destaque">Campeão</span>
+                <p>MEIA - 10</p>
             </div>
         </div>
 
-        <!-- Card 3 - Jogador 3 -->
+        <!-- Card 3 - Marcelinho -->
         <div class="card">
-            <div class="card-img">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="80" r="40" fill="#1a1a1a" />
-                    <rect x="70" y="120" width="60" height="70" fill="#000000" />
-                    <circle cx="100" cy="160" r="30" fill="#FFFFFF" />
-                    <text x="100" y="190" font-size="24" text-anchor="middle" fill="#FF0000" font-weight="bold">7</text>
-                    <text x="100" y="60" font-size="20" text-anchor="middle" fill="#FFFFFF" font-weight="bold">Marcelinho</text>
-                </svg>
+            <div class="card-imagem">
+                <img src="https://placehold.co/400x300/000000/ffffff?text=MARCELINHO&font=montserrat" alt="Marcelinho - Corinthians">
             </div>
             <div class="card-info">
                 <h3>MARCELINHO</h3>
-                <p>Atacante - Moleque</p>
-                <span class="destaque">Mundial 2000</span>
+                <p>ATACANTE - 7</p>
             </div>
         </div>
 
-        <!-- Card 4 - Jogador 4 -->
+        <!-- Card 4 - Cássio -->
         <div class="card">
-            <div class="card-img">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="80" r="40" fill="#222222" />
-                    <rect x="70" y="120" width="60" height="70" fill="#000000" />
-                    <circle cx="100" cy="160" r="30" fill="#FFFFFF" />
-                    <text x="100" y="190" font-size="24" text-anchor="middle" fill="#FF0000" font-weight="bold">1</text>
-                    <text x="100" y="60" font-size="20" text-anchor="middle" fill="#FFFFFF" font-weight="bold">Cássio</text>
-                </svg>
+            <div class="card-imagem">
+                <img src="https://placehold.co/400x300/ffffff/000000?text=CÁSSIO&font=montserrat" alt="Cássio - Corinthians">
             </div>
             <div class="card-info">
                 <h3>CÁSSIO</h3>
-                <p>Goleiro - Gigante</p>
-                <span class="destaque">Mundial 2012</span>
+                <p>GOLEIRO - 12</p>
             </div>
         </div>
 
-        <!-- Card 5 - Jogador 5 -->
+        <!-- Card 5 - Ronaldo -->
         <div class="card">
-            <div class="card-img">
-                <svg viewBox="0 0 200 200" xmlns="https://s3.static.brasilescola.uol.com.br/be/2023/09/1-escudo-do-corinthians.jpg">
-                    <circle cx="100" cy="80" r="40" fill="#2a2a2a" />
-                    <rect x="70" y="120" width="60" height="70" fill="#000000" />
-                    <circle cx="100" cy="160" r="30" fill="#FFFFFF" />
-                    <text x="100" y="190" font-size="24" text-anchor="middle" fill="#FF0000" font-weight="bold">5</text>
-                    <text x="100" y="60" font-size="20" text-anchor="middle" fill="#FFFFFF" font-weight="bold">Ronaldo</text>
-                </svg>
+            <div class="card-imagem">
+                <img src="https://placehold.co/400x300/000000/ffffff?text=RONALDO&font=montserrat" alt="Ronaldo - Corinthians">
             </div>
             <div class="card-info">
                 <h3>RONALDO</h3>
-                <p>Atacante - Fenômeno</p>
-                <span class="destaque">Ídolo</span>
+                <p>ATACANTE - 9</p>
             </div>
         </div>
 
-        <!-- Card 6 - Jogador 6 -->
+        <!-- Card 6 - Neto -->
         <div class="card">
-            <div class="card-img">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="80" r="40" fill="#1f1f1f" />
-                    <rect x="70" y="120" width="60" height="70" fill="#000000" />
-                    <circle cx="100" cy="160" r="30" fill="#FFFFFF" />
-                    <text x="100" y="190" font-size="24" text-anchor="middle" fill="#FF0000" font-weight="bold">3</text>
-                    <text x="100" y="60" font-size="20" text-anchor="middle" fill="#FFFFFF" font-weight="bold">Chicão</text>
-                </svg>
+            <div class="card-imagem">
+                <img src="https://placehold.co/400x300/ffffff/000000?text=NETO&font=montserrat" alt="Neto - Corinthians">
             </div>
             <div class="card-info">
-                <h3>CHICÃO</h3>
-                <p>Zagueiro - Capitão</p>
-                <span class="destaque">Bicampeão</span>
+                <h3>NETO</h3>
+                <p>MEIA - 10</p>
             </div>
         </div>
     </div>
 
-    <div class="footer">
-        ⚽ 💪 #VaiCorinthians - 3 colunas x 2 linhas de pura paixão! 🏆
+    <div class="rodape">
+        <span>⚫</span> 3 COLUNAS | 2 LINHAS | PAIXÃO PRETA E BRANCA <span>⚪</span>
     </div>
 
 </body>
